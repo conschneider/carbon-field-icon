@@ -33,6 +33,7 @@ class Icon_Field extends Predefined_Options_Field {
 			'icon'     => '',
 		] ) );
 
+		/** Load frontend queue function  */
 		$this->enqueue_front_assets();
 
 		parent::__construct( $type, $name, $label );
@@ -82,6 +83,11 @@ class Icon_Field extends Predefined_Options_Field {
 			\Carbon_Field_Icon\VERSION
 		);
 	}
+
+	/**
+	 * Load icomoon for the frontend.
+	 *
+	 */
 
 	public function enqueue_front_assets() {
 		$root_uri = \Carbon_Fields\Carbon_Fields::directory_to_url( \Carbon_Field_Icon\DIR );
@@ -208,7 +214,7 @@ class Icon_Field extends Predefined_Options_Field {
 	 *
 	 * @return $this
 	 */
-	 /** NOTE Insert Icon */
+	 /** NOTE Load provider in bootstrap.php */
 	 public function add_icomoon_options() {
 		return $this->add_provider_options( 'icomoon' );
 	}

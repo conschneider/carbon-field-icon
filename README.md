@@ -97,3 +97,14 @@ Container::make( 'theme_options', __( 'Theme Options', 'crb' ) )
 			->add_provider_options( 'custom' ),
 	) );
 ```
+
+## Added Support for Icomoon
+
+* Create your font files with Icomoon.
+* Font files are located in `build/fonts`.
+* CSS path `build/icomoon.css`
+* New provider for Icomoon located at: `core/Providers/Icomoon_Provider.php`
+  * The provider also loads the `icomoon.css`
+* `data/icomoon.json` provides the icon list.
+
+If you want to add another provider, search the code for `icomoon`. That should give you all necessary touchpoints.

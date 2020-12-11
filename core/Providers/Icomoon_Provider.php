@@ -6,7 +6,7 @@ class Icomoon_Provider implements Icon_Provider_Interface {
 	const VERSION = '1.0.0';
 
 /**
-	 * Enqueue assets in the backend.
+	 * Enqueue assets in the backend. Frontend happens in Icon_Field.php
 	 *
 	 * @access public
 	 *
@@ -24,7 +24,7 @@ class Icomoon_Provider implements Icon_Provider_Interface {
 	}
 
 	/**
-	 * Get the provider options.
+	 * Get the provider options. This parses data/icomoon.json
 	 *
 	 * @access public
 	 *
