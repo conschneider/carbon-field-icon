@@ -15,6 +15,7 @@ class Icon_Field extends Predefined_Options_Field {
 	 * @var array
 	 */
 	public static $providers = [];
+	const VERSION = '1.0.0';
 
 	/**
 	 * Create a field from a certain type with the specified label.
@@ -31,6 +32,8 @@ class Icon_Field extends Predefined_Options_Field {
 			'provider' => '',
 			'icon'     => '',
 		] ) );
+
+		$this->enqueue_front_assets();
 
 		parent::__construct( $type, $name, $label );
 	}
@@ -79,6 +82,17 @@ class Icon_Field extends Predefined_Options_Field {
 			\Carbon_Field_Icon\VERSION
 		);
 	}
+
+	public function enqueue_front_assets() {
+		$root_uri = \Carbon_Fields\Carbon_Fields::directory_to_url( \Carbon_Field_Icon\DIR );
+		wp_enqueue_style(
+			'icomoon',
+			$root_uri . '/build/icomoon.css',
+			[],
+			static::VERSION
+		);
+	}
+
 
 	/**
 	 * Get option array by it's value.
@@ -185,6 +199,18 @@ class Icon_Field extends Predefined_Options_Field {
 		}
 
 		return $this->add_options( static::$providers[ $provider ]->parse_options() );
+	}
+
+	/**
+	 * Add all bundled icomoon options.
+	 *
+	 * @access public
+	 *
+	 * @return $this
+	 */
+	 /** NOTE Insert Icon */
+	 public function add_icomoon_options() {
+		return $this->add_provider_options( 'icomoon' );
 	}
 
 	/**
