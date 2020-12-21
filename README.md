@@ -106,5 +106,6 @@ Container::make( 'theme_options', __( 'Theme Options', 'crb' ) )
 * New provider for Icomoon located at: `core/Providers/Icomoon_Provider.php`
   * The provider also loads the `icomoon.css`
 * `data/icomoon.json` provides the icon list.
+* Usage: `->add_icomoon_options()`
 
 If you want to add another provider, search the code for `icomoon`. That should give you all necessary touchpoints.
